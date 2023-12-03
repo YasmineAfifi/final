@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}  
+
+{%load static%}
+
+{% block main %}
+
+ {%include 'layouts/navbar.html'%}
+
+
+<table class="table-auto w-full border-collapse mt-5	">
+    <thead>
+      <tr>
+        <th class="border-solid border-2 border-slate-300 p-[8px] pt-[12px] pb-[12px] bg-gray-400 text-white">Brand</th>
+        <th class="border-solid border-2 border-slate-300 p-[8px] pt-[12px] pb-[12px] bg-gray-400 text-white">Color</th>
+        <th class="border-solid border-2 border-slate-300 p-[8px] pt-[12px] pb-[12px] bg-gray-400 text-white">Price</th>
+        <th class="border-solid border-2 border-slate-300 p-[8px] pt-[12px] pb-[12px] bg-gray-400 text-white">Date_From</th>
+        <th class="border-solid border-2 border-slate-300 p-[8px] pt-[12px] pb-[12px] bg-gray-400 text-white">Date_To </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for reservation in reservations %}
+      <tr>
+        <td class="border-solid border-2 border-slate-300 p-[8px] text-center">{{reservation.car.brand}}</td>
+        <td class="border-solid border-2 border-slate-300 p-[8px] text-center">{{reservation.car.color}}</td>
+        <td class="border-solid border-2 border-slate-300 p-[8px] text-center">{{reservation.car.price}} LE/Day</td>
+        <td class="border-solid border-2 border-slate-300 p-[8px] text-center">{{reservation.date_from}}</td>
+        <td class="border-solid border-2 border-slate-300 p-[8px] text-center">{{reservation.date_to}}</td>
+      </tr>
+      {% endfor %}
+  </table>
+
+
+  
+{% endblock main %}

@@ -1,0 +1,134 @@
+{% extends 'layouts/base.html' %}  
+
+{%load static%}
+
+{% block main %}
+
+ {%include 'layouts/navbar.html'%}
+
+ <div>
+  <img src="{%static 'image/6.jpg'%}" alt="homeImage" width="100%">
+
+</div>
+
+        <div  class="flex justify-center my-10 ">
+
+            <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+           
+              {% for car in cars%}
+             
+                <div class=' w-[350px] m-auto	 '>
+                 
+                <div class="border border-solid  border-slate-400	 p-2.5 rounded-md	" >
+              
+                  <div class="w-full h-[250px]">
+                <img class='h-full w-full object-cover rounded-md	' src="{{car.image}}">
+              </div>
+                <div class='flex justify-between'>
+                    
+                    <div>
+                    <a class='titleCardDelete' href='/carDetails/{{car.id}}'>
+                    <h5 class='card-title py-3 font-bold font-sans text-xl'> {{car.brand}}</h5></a>
+                    </div>
+                    <div class='py-3 text-center flex items-center'>
+                    <a href='/update/{{car.id}}'>
+                    <img src="{% static 'image/edit.png' %}" width='15'></a>
+                    </div>
+                </div>
+
+
+                <div class='text-center py-4'>
+                  <a class='bg-[#0B5ED7] w-[49%] inline-block py-1.5 rounded-md text-white' href='/carDetails/{{car.id}}'>Details</a>
+                  <a class='bg-[#5C636A] w-[49%] inline-block py-1.5 rounded-md text-white' href='/delete/{{car.id}}'>Delete</a>
+                  </div>
+                </div>
+
+                  </div>
+
+{% endfor %}
+        
+
+   
+                  </div>
+                  
+                  </div>
+
+        
+     
+
+
+                  
+  <div class="relative flex justify-center ">
+
+    <div class="w-full ">
+      <img src="{%static 'image/LM5OT587.jpg'%}" alt=""  class="w-full h-[450px] object-cover brightness-50	">
+    </div>
+
+
+    <div class=" absolute top-0 flex justify-center h-full items-center w-full">
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 w-[90%] text-center text-white ">
+
+        <div>
+
+          <div class="flex justify-center">
+            <img src="{%static 'image/car.png'%}" alt="stepImageIcon" width="80px">
+          </div>
+          <div>
+            <h3>Select Your Car</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+          </div>
+
+        </div>
+
+        <div >
+
+          <div class="flex justify-center">
+            <img src="{%static 'image/clipboard.png'%}" alt="stepImageIcon" width="80px">
+
+          </div>
+          <div >
+            <h3>Booking & Confirm</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+          </div>
+
+
+        </div>
+
+        <div >
+
+          <div class="flex justify-center">
+            <img src="{%static 'image/card.png'%}" alt="stepImageIcon" width="80px">
+          </div>
+          <div>
+            <h3>Booking Payment</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+          </div>
+
+
+        </div>
+
+        <div >
+
+          <div class="flex justify-center">
+            <img src="{%static 'image/key.png'%}" alt="stepImageIcon" width="80px">
+          </div>
+          <div>
+            <h3>Enjoy The Car</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+{% endblock main %}
+
+
+
+
+
+

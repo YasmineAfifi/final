@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}  
+
+{%load static%}
+
+{% block main %}
+
+ {%include 'layouts/navbar.html'%}
+
+      <div class="bg-[#f1f1f1] h-full">
+
+        <div class="flex justify-center px-3" >
+          <img src="../{{details.image}}" alt="" class="w-[80%] object-cover h-[500px] rounded-md	my-5">
+        </div>
+
+        <div class="text-center">
+          <form method="post">
+            {% csrf_token %}
+            {% comment %} {{user_id}} {% endcomment %}
+            <input type="hidden" name="user" value={{user_id}}> 
+
+            <input type="hidden" name="car" value={{details.id}}> 
+
+            <p class="text-2xl font-bold">{{details.brand}}</p>
+            <hr>
+            <div >
+              <p class="text-xl ">{{details.price}} LE/Day</p>
+              <p class="text-lg ">{{details.color}}</p>
+            </div>
+
+      </div>
+
+
+    <div class="flex justify-center">
+     
+      <div class=" grid grid-cols-2  gap-4 my-3 mx-3 w-1/2">
+        <div >
+        <input placeholder="From" type="text" class="registerInputs" name="date_from" id="dateFrom" onfocus="this.type='date'" onblur="this.type='text'">
+          {{reservation_form.date_from.errors}}
+        </div>
+        <div>
+         <input placeholder="To" type="text"  class="registerInputs" name="date_to" id="dateTo" onfocus="this.type='date'" onblur="this.type='text'">
+         {{reservation_form.date_to.errors}}
+        </div>
+     
+      </div>
+
+
+
+  
+    </div>
+    <div class="text-center pb-5">
+      <button type="submit" class=" w-1/4 bg-gray-900 py-1.5 rounded-md text-white">Reserve</button>
+    </div>
+  </form>
+
+</div>
+
+
+
+  {% endblock main %}

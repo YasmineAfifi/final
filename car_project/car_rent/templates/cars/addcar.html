@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html'%}
+{% load static%}
+
+{% block main%}
+<div>
+{% include 'layouts/navbar.html'%}
+</div>
+
+<div class="relative">
+<div class="h-screen">
+<img src="{% static '/image/add1.jpg'%}" class="w-full h-full object-cover brightness-50">
+</div>
+<div class="absolute top-0 flex justify-center w-full h-full items-center">
+    <div class="bg-[#6e6e6e7d] p-8 rounded-xl">
+      <p class="text-center my-3">Add Car</p>
+      <form method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+
+        <div class="grid grid-cols-2 gap-4">
+          <div >
+        {{carForm.brand}}
+        {{carForm.brand.errors}}
+          </div>
+          <div >
+            {{carForm.color}}
+            {{carForm.color.errors}}
+          </div>
+        </div>
+
+     <div class="grid grid-cols-2 gap-4 my-5">
+          <div >
+
+            {{carForm.price}}
+            {{carForm.price.errors}}
+          </div>
+          <div>
+            {{carForm.image}}
+            {{carForm.image.errors}}
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <button type="submit" class=" w-1/2 bg-yellow-600 py-1.5 rounded-md text-white" class="w-50">Add</button>
+        </div>
+      </form>
+
+
+    </div>
+
+</div>
+{% endblock main%}

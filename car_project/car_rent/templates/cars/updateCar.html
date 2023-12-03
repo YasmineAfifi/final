@@ -1,0 +1,43 @@
+{% extends 'layouts/base.html'%}
+{% load static%}
+
+{% block main%}
+<div>
+{% include 'layouts/navbar.html'%}
+</div>
+
+<div class="relative">
+<div class="h-screen">
+<img src="../{{car.image}}" class="w-full h-full object-cover brightness-50">
+</div>
+<div class="absolute top-0 flex justify-center w-full h-full items-center">
+    <div class="bg-[#6e6e6e7d] p-8 rounded-xl">
+      <p class="text-center my-3">Add Car</p>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="grid grid-cols-2 gap-4">
+          <div >
+            <input type="text" name="brand" class="registerInputs" placeholder="Brand" value="{{car.brand}}" >  </div>
+          <div >
+            <input type="text" name="color" class="registerInputs" placeholder="Color" value="{{car.color}}" >   </div>
+        </div>
+
+     <div class="grid grid-cols-2 gap-4 my-5">
+          <div >
+
+            <input type="text" name="price" class=" registerInputs" placeholder="Price" value="{{car.price}}" >
+          </div>
+          <div>
+            <input type="file" name="img" class="registerInputs" id="image"> </div>
+        </div>
+        <div class="text-center mt-2">
+          <button type="submit" class=" w-1/2 bg-yellow-600 py-1.5 rounded-md text-white" class="w-50">Update</button>
+        </div>
+      </form>
+
+
+    </div>
+
+</div>
+{% endblock main%}
