@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}  
+
+{%load static%}
+
+{% block main %}
+
+ {%include 'layouts/navbar.html'%}
+
+
+        <div  class="flex justify-center my-10 ">
+
+            <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+           
+              {% for car in search%}
+             
+                <div class=' w-[350px] m-auto	 '>
+                 
+                <div class="border border-solid  border-slate-400	 p-2.5 rounded-md	" >
+              
+                  <div class="w-full h-[250px]">
+                <img class='h-full w-full object-cover rounded-md	' src="{{car.image}}">
+              </div>
+                <div class='flex justify-between'>
+                    
+                    <div>
+                    <a class='titleCardDelete' href='/carDetails/{{car.id}}'>
+                    <h5 class='card-title py-3 font-bold font-sans text-xl'> {{car.brand}}</h5></a>
+                    </div>
+                    <div class='py-3 text-center flex items-center'>
+                    <a href='/update/{{car.id}}'>
+                    <img src="{% static 'image/edit.png' %}" width='15'></a>
+                    </div>
+                </div>
+
+
+                <div class='text-center py-4'>
+                  <a class='bg-[#0B5ED7] w-[49%] inline-block py-1.5 rounded-md text-white' href='/carDetails/{{car.id}}'>Details</a>
+                  <a class='bg-[#5C636A] w-[49%] inline-block py-1.5 rounded-md text-white' href='/delete/{{car.id}}'>Delete</a>
+                  </div>
+                </div>
+
+                  </div>
+
+{% endfor %}
+        
+
+   
+                  </div>
+                  
+                  </div>
+
+        
+     
+
+
+
+{% endblock main %}
+
+
+
+
+
+

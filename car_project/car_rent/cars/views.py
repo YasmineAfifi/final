@@ -12,12 +12,12 @@ def get_home_page(request):
      all_cars= Car.objects.all()
      return render(request ,'cars/home.html',{'cars':all_cars})
 
+
 # add car function  
 @login_required
 def add_car(request):
     if request.method == 'POST':
         car_data = CarForm(request.POST, request.FILES)
-        # print(car_data.errors)
         if car_data.is_valid():
             car_data.save()
             return redirect('home')
@@ -72,12 +72,24 @@ def update_car(request,car_id):
     else:
         return render(request,"cars/updateCar.html",{'car':car})
     
-
+# get the reservation for each user
 @login_required
 def get_reservations(request):
-
-    all_reservations = Reserve.objects.all()
-
     
+    User_reservations = Reserve.objects.filter(user = request.user.id)
+    if User_reservations:
 
-    return render(request,'cars/reservations.html',{"reservations":all_reservations})
+        return render(request,'cars/reservations.html',{"reservations":User_reservations})
+    else:
+        return HttpResponse('No Reservation')
+
+@login_required
+def search_for_car(resquest):
+    search_value = resquest.GET.get('search')
+    search_result = Car.objects.all().filter(brand__contains =search_value )
+    
+    if search_result:
+
+        return render(resquest,'cars/search.html',{'search':search_result})
+    else:
+        return HttpResponse("No Result Found")

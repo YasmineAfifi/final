@@ -7,7 +7,19 @@
  {%include 'layouts/navbar.html'%}
 
  <div>
-  <img src="{%static 'image/6.jpg'%}" alt="homeImage" width="100%">
+  <img src="{%static 'image/6.jpg'%}" alt="homeImage" width="100%" class="h-[560px] object-cover">
+
+
+
+  <div class="flex justify-center my-5">
+
+    <form action="{%url 'search'%}" method="get" class="flex">
+    <input type="text"  name="search" placeholder="Search" class="min-h-[50px]  w-[300px]  border border-solid border-gray-400 py-0 px-4 rounded-tl-md rounded-bl-md">
+    <button class="min-h-[50px] rounded-tr-md rounded-br-md bg-slate-800 border-none py-0 px-4 text-white" type="submit">Search</button>
+    </form>
+
+  </div>
+
 
 </div>
 

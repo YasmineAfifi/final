@@ -13,7 +13,7 @@ class User(AbstractUser):
     email= models.EmailField(unique=True)
     password = models.TextField(validators=[MinLengthValidator(limit_value=6,message="Password must be between 6 to 15 char")])
    
-    # username =None
+    username =None
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     
