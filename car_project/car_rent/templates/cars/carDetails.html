@@ -6,6 +6,14 @@
 
  {%include 'layouts/navbar.html'%}
 
+ {% if Data%}
+
+ <div class="flex justify-center h-screen items-center">
+ <p class="bg-slate-400 text-center text-white py-5 w-[90%]">{{Data}}</p>
+ </div>
+
+{% else %}
+
       <div class="bg-[#f1f1f1] h-full">
 
         <div class="flex justify-center px-3" >
@@ -54,7 +62,7 @@
   </form>
 
 </div>
-
+{% endif %}
 
 
   {% endblock main %}

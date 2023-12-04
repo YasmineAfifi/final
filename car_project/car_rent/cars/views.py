@@ -44,7 +44,8 @@ def get_details(request,car_id):
     
     except Car.DoesNotExist:
 
-        return HttpResponse('Car does not exist')
+        # return HttpResponse('Car does not exist')
+        return render(request,'cars/carDetails.html',{'Data':'Car does not exist'})
     
     
     
