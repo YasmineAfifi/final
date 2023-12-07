@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_auth',
     'cars',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 
 AUTH_USER_MODEL = 'user_auth.User'
+
+
+# flowbite
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
